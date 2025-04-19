@@ -106,27 +106,27 @@ public class GrammarTests
 	public void testInvalid1() throws ParseException, InvalidRuleException, InvalidGrammarException
 	{
 		@SuppressWarnings("unused")
-		BnfParser parser = new BnfParser(GrammarTests.class.getResourceAsStream("data/Grammar-invalid-1.bnf"));
+		BnfParser parser = new BnfParser(GrammarTests.class.getResourceAsStream("/data/Grammar-invalid-1.bnf"));
 	}
 	
 	@Test(expected=InvalidGrammarException.class)
 	public void testInvalid2() throws ParseException, InvalidRuleException, InvalidGrammarException
 	{
 		@SuppressWarnings("unused")
-		BnfParser parser = new BnfParser(GrammarTests.class.getResourceAsStream("data/Grammar-invalid-2.bnf"));
+		BnfParser parser = new BnfParser(GrammarTests.class.getResourceAsStream("/data/Grammar-invalid-2.bnf"));
 	}
 	
 	@Test(expected=InvalidGrammarException.class)
 	public void testInvalid3() throws ParseException, InvalidRuleException, InvalidGrammarException
 	{
 		@SuppressWarnings("unused")
-		BnfParser parser = new BnfParser(GrammarTests.class.getResourceAsStream("data/Grammar-invalid-3.bnf"));
+		BnfParser parser = new BnfParser(GrammarTests.class.getResourceAsStream("/data/Grammar-invalid-3.bnf"));
 	}
 	
 	@Test(expected=ParseException.class)
 	public void testTooMuchRecursion() throws ParseException, InvalidRuleException, InvalidGrammarException
 	{
-		BnfParser parser = new BnfParser(GrammarTests.class.getResourceAsStream("data/Grammar-15.bnf"));
+		BnfParser parser = new BnfParser(GrammarTests.class.getResourceAsStream("/data/Grammar-15.bnf"));
 		parser.setMaxRecursionSteps(2);
 		parser.parse("a a b");
 	}
@@ -157,7 +157,7 @@ public class GrammarTests
 	@Test
 	public void testInputStream() throws InvalidGrammarException, ParseException
 	{
-		BnfParser parser = new BnfParser(GrammarTests.class.getResourceAsStream("data/Grammar-0.bnf"));
+		BnfParser parser = new BnfParser(GrammarTests.class.getResourceAsStream("/data/Grammar-0.bnf"));
 		ParseNode node = parser.parse("SELECT a FROM t");
 		assertNotNull(node);
 	}
@@ -472,7 +472,7 @@ public class GrammarTests
 		parser.setDebugMode(debug_mode);
 		try
 		{
-			Scanner grammar = new Scanner(GrammarTests.class.getResourceAsStream(filename));
+			Scanner grammar = new Scanner(GrammarTests.class.getResourceAsStream("/" + filename));
 			//String grammar = PackageFileReader.readPackageFile(GrammarTests.class, filename);
 			parser.setGrammar(grammar);
 		}

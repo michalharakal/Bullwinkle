@@ -96,7 +96,7 @@ public class ParserTest
 	{
 		boolean has_error = false;
 		BnfParser parser = new BnfParser();
-		Scanner grammar = new Scanner(ParserTest.class.getResourceAsStream("data/Grammar-1.bnf"));
+		Scanner grammar = new Scanner(ParserTest.class.getResourceAsStream("/data/Grammar-1.bnf"));
 		try
 		{
 			parser.setGrammar(grammar);

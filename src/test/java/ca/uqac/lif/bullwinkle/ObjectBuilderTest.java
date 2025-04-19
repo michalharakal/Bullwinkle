@@ -47,7 +47,7 @@ public class ObjectBuilderTest
 	@Test
 	public void testBuilder() throws InvalidGrammarException, ParseException, BuildException
 	{
-		BnfParser parser = new BnfParser(ObjectBuilderTest.class.getResourceAsStream("data/DummyObject.bnf"));
+		BnfParser parser = new BnfParser(ObjectBuilderTest.class.getResourceAsStream("/data/DummyObject.bnf"));
 		ParseNode tree = parser.parse("+ 3 3");
 		DummyBuilder db = new DummyBuilder();
 		DummyObject dob = db.build(tree);
@@ -58,7 +58,7 @@ public class ObjectBuilderTest
 	@Test
 	public void testBuilderPop() throws InvalidGrammarException, ParseException, BuildException
 	{
-		BnfParser parser = new BnfParser(ObjectBuilderTest.class.getResourceAsStream("data/DummyObject.bnf"));
+		BnfParser parser = new BnfParser(ObjectBuilderTest.class.getResourceAsStream("/data/DummyObject.bnf"));
 		ParseNode tree = parser.parse("+ 3 3");
 		DummyBuilderPop db = new DummyBuilderPop();
 		DummyObject dob = db.build(tree);
@@ -70,7 +70,7 @@ public class ObjectBuilderTest
 	public void testBuilderInvalid1() throws InvalidGrammarException, ParseException, BuildException
 	{
 		// Will cause an IllegalArgumentException
-		BnfParser parser = new BnfParser(ObjectBuilderTest.class.getResourceAsStream("data/DummyObject.bnf"));
+		BnfParser parser = new BnfParser(ObjectBuilderTest.class.getResourceAsStream("/data/DummyObject.bnf"));
 		ParseNode tree = parser.parse("+ 3 3");
 		InvalidBuilder db = new InvalidBuilder();
 		db.build(tree);
@@ -80,7 +80,7 @@ public class ObjectBuilderTest
 	public void testBuilderInvalid2() throws InvalidGrammarException, ParseException, BuildException
 	{
 		// Will cause an IllegalAccessException
-		BnfParser parser = new BnfParser(ObjectBuilderTest.class.getResourceAsStream("data/DummyObject.bnf"));
+		BnfParser parser = new BnfParser(ObjectBuilderTest.class.getResourceAsStream("/data/DummyObject.bnf"));
 		ParseNode tree = parser.parse("- 3 3");
 		InvalidBuilder db = new InvalidBuilder();
 		db.build(tree);

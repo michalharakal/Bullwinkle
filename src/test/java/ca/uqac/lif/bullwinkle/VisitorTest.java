@@ -93,7 +93,7 @@ public class VisitorTest
 	public void testText() throws InvalidGrammarException, ParseException, VisitException
 	{
 		String expression = "SELECT a FROM t";
-		BnfParser parser = new BnfParser(VisitorTest.class.getResourceAsStream("data/Grammar-0.bnf"));
+		BnfParser parser = new BnfParser(VisitorTest.class.getResourceAsStream("/data/Grammar-0.bnf"));
 		ParseNode node = parser.parse(expression);
 		IndentedTextVisitor visitor = new IndentedTextVisitor();
 		node.postfixAccept(visitor);
@@ -105,7 +105,7 @@ public class VisitorTest
 	public void testGraphviz() throws InvalidGrammarException, ParseException, VisitException
 	{
 		String expression = "SELECT a FROM t";
-		BnfParser parser = new BnfParser(VisitorTest.class.getResourceAsStream("data/Grammar-0.bnf"));
+		BnfParser parser = new BnfParser(VisitorTest.class.getResourceAsStream("/data/Grammar-0.bnf"));
 		ParseNode node = parser.parse(expression);
 		GraphvizVisitor visitor = new GraphvizVisitor();
 		node.postfixAccept(visitor);
@@ -117,7 +117,7 @@ public class VisitorTest
 	public void testXml() throws InvalidGrammarException, ParseException, VisitException
 	{
 		String expression = "SELECT a FROM t";
-		BnfParser parser = new BnfParser(VisitorTest.class.getResourceAsStream("data/Grammar-0.bnf"));
+		BnfParser parser = new BnfParser(VisitorTest.class.getResourceAsStream("/data/Grammar-0.bnf"));
 		ParseNode node = parser.parse(expression);
 		XmlVisitor visitor = new XmlVisitor();
 		visitor.setTokenElementName("tok");
